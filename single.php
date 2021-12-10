@@ -44,7 +44,17 @@ get_header();
   <img id="product_img" src="" alt="" />
   <h4></h4>
     <p class="pris"></p>
+	<div class="ui">
+		
+		<div id="container">
+      <button id="ned">-</button>
+      <div id="number">0</div>
+
+      <button id="up">+</button>
+    </div>
+		
     <button>Tilføj til kurv</button>
+		</div>
     <p class="beskrivelse"></p>
     
 </article>
@@ -68,6 +78,24 @@ get_header();
      window.addEventListener("DOMContentLoaded", getJson);
 
        async function getJson() {
+		   let add = document.querySelector("#up");
+        let remove = document.querySelector("#ned");
+        let nr = document.querySelector("#number");
+        let integer = 0;
+
+        add.addEventListener("click", () => {
+          integer += 1;
+          nr.innerHTML = integer;
+        });
+
+        remove.addEventListener("click", () => {
+          if (integer > 0) {
+            integer -= 1;
+            nr.innerHTML = integer;
+          }
+        });
+		   
+		   
          //Promise - data lover program at komme med date, imen det køre videre
          const result = await fetch(url);
          produkt = await result.json();
@@ -79,7 +107,7 @@ get_header();
        function visKurser() {
 
    	document.querySelector("h4").innerHTML = produkt.navn;
-    document.querySelector(".pris").innerHTML = produkt.pris;
+    document.querySelector(".pris").innerHTML = produkt.pris + " kr.";
     document.querySelector(".beskrivelse").innerHTML = produkt.beskrivelse;
        }
 

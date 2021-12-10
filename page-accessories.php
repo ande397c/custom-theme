@@ -35,8 +35,9 @@ get_header();
 
 <template>
 	<article class="produkter">
-      <h4></h4>
+      
           <img class="produkt_img" src="" alt="" />
+		<h4></h4>
           <p class="pris"></p>
     </article>
 </template>
@@ -88,7 +89,7 @@ function visProdukter() {
     const container = document.querySelector(".produkt_oversigt");
   container.textContent = ""; //Ryd container inden loop
   produkter.forEach((produkt) => {
-
+console.log(produkt.categories);
 
         if (produkt.categories.includes(2)) {
 
@@ -100,7 +101,12 @@ function visProdukter() {
       //Placer i HTML
 
       klon.querySelector("h4").innerHTML = produkt.title.rendered;
-      klon.querySelector(".pris").innerHTML = produkt.pris;
+      klon.querySelector(".pris").innerHTML = produkt.pris + " kr.";
+	  klon.querySelector("img").src = produkt.billede.guid;
+	  klon.querySelector(".produkter").addEventListener("click", () => {
+        location.href = produkt.link;
+
+      });
 
       container.appendChild(klon); 
 

@@ -6,6 +6,48 @@
 	display: none;
 }
 
+.pris {
+	color: white;
+}
+
+h4 {
+	color: white;
+	font-size: 1rem;
+}
+
+#container {
+        display: flex;
+      }
+
+      #number {
+         border: 1px solid black;
+   		 padding-left: 20px;
+   		 padding-right: 20px;
+  		 height: 38px;
+   		 align-items: center;
+  		 display: flex;
+    	justify-content: center;
+    	align-items: center;
+      }
+
+      #up {
+        background-color: white;
+        border: 1px solid black;
+        cursor: pointer;
+		margin-right: 3rem;
+      }
+      #ned {
+        background-color: white;
+        border: 1px solid black;
+        cursor: pointer;
+      }
+
+.ui {
+	display: flex;
+}
+
+
+
 .produkt_oversigt {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
