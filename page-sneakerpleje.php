@@ -65,7 +65,7 @@ const catUrl = "https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/wp-jso
 
 let produkter;
 let kategori;
-let filterKurs;
+let filterProdukt;
 let filter = "alle";
 
 

@@ -41,8 +41,9 @@ get_header();
 
 
 <article id="single">
-  <img id="product_img" src="" alt="" />
-  <h4></h4>
+	  <h4></h4>
+  <img id="produkt_img" src="" alt="" />
+
     <p class="pris"></p>
 	<div class="ui">
 		
@@ -59,9 +60,18 @@ get_header();
     
 </article>
 
+<h2 id="produkt_oplysninger">Produkt oplysninger</h2>
+
+<article class="lang_beskrivelse">
+	
+	 <p class="beskrivelse_dropdown"></p>
+
+</article>
+
 <h2 id="h2_lignende">Andre kunder har købt</h2>
 
 <section id="andre_produkter"></section>
+
       <template>
         <article>
           <img src="" alt="" />
@@ -78,7 +88,7 @@ get_header();
      window.addEventListener("DOMContentLoaded", getJson);
 
        async function getJson() {
-		   let add = document.querySelector("#up");
+		let add = document.querySelector("#up");
         let remove = document.querySelector("#ned");
         let nr = document.querySelector("#number");
         let integer = 0;
@@ -100,15 +110,19 @@ get_header();
          const result = await fetch(url);
          produkt = await result.json();
         console.log(produkt);
-         visKurser();
+         visProdukt();
        }
 
 
-       function visKurser() {
+       function visProdukt() {
 
    	document.querySelector("h4").innerHTML = produkt.navn;
     document.querySelector(".pris").innerHTML = produkt.pris + " kr.";
     document.querySelector(".beskrivelse").innerHTML = produkt.beskrivelse;
+	document.querySelector("#produkt_img").src = produkt.billede.guid;
+		   
+    document.querySelector(".beskrivelse_dropdown").innerHTML = produkt.beskrivelse_dropdown;
+	 
        }
 
   getJson();

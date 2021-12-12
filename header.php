@@ -25,26 +25,13 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
-		
+
+	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'botiga' ); ?></a>
+
+	<?php do_action( 'botiga_header' ); ?>
+
+	<?php do_action( 'botiga_page_header' ); ?>
 	
-		<div id="menu">
-    <nav class="navigations_menu">
-				<a class="logo" href="index.html"
-					><img class="logo_img" src="./assets/images/logo.svg" alt="logo"
-				/></a>
-				<div id="burger_wrapper">
-					<div id="menuknap">
-						<div class="streg_1"></div>
-						<div class="streg_2"></div>
-						<div class="streg_3"></div>
-					</div>
-					<ul class="menu hidden">
-						<li><a class="active" href="https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/">Shop</a></li>
-						<li><a href="https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/guide/">Guide</a></li>
-						<li><a href="cocktail.html">Blog</a></li>
-						<li><a href="https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/om-os/">Om os</a></li>
-					</ul>
-				</div>
-			</nav>
+	<?php do_action( 'botiga_main_wrapper_start' ); ?>		
 		
 	</div>
