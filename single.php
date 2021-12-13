@@ -86,7 +86,7 @@ get_header();
 
       const url = "https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/wp-json/wp/v2/produkt/"+id;
 
-      const produkterUrl = "https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/wp-json/wp/v2/produkt?per_page=4";
+      const produkterUrl = "https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/wp-json/wp/v2/produkt?per_page=3";
 
       const produktTemplate = document.querySelector("template");
 

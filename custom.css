@@ -267,6 +267,12 @@ h4 {
   margin-top: 7rem;
 }
 
+#andre_produkter {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 5rem;
+}
+
 .produkter {
   cursor: pointer;
   transition: ease-in 0.3s;
@@ -282,6 +288,17 @@ h4 {
 } */
 
 .produkter:hover {
+  background-color: #333;
+  transform: translateY(-10px);
+}
+
+.lignende_produkter {
+  cursor: pointer;
+  transition: ease-in 0.3s;
+  padding: 10px;
+}
+
+.lignende_produkter:hover {
   background-color: #333;
   transform: translateY(-10px);
 }
@@ -330,6 +347,12 @@ button {
 .information {
   margin-top: 4rem;
 }
+.information p {
+  text-decoration: underline white;
+}
+.information:hover {
+  color: yellow;
+}
 
 .nyhedsbrev {
   margin-top: 4rem;
@@ -366,6 +389,9 @@ input[type="submit"] {
   transition: 250ms ease;
   align-self: center;
   margin-bottom: 2rem;
+}
+input[type="submit"]:hover {
+  background-color: #333;
 }
 @media (min-width: 900px) {
   #footer {

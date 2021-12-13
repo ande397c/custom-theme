@@ -184,8 +184,8 @@ function visProdukter() {
 
       klon.querySelector("h4").innerHTML = produkt.title.rendered;
       klon.querySelector(".pris").innerHTML = produkt.pris + " kr.";
-	  klon.querySelector("img").src = produkt.billede.guid;
-	  klon.querySelector(".produkter").addEventListener("click", () => {
+	    klon.querySelector("img").src = produkt.billede.guid;
+	    klon.querySelector(".produkter").addEventListener("click", () => {
         location.href = produkt.link;
 
       });
