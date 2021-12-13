@@ -15,25 +15,16 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main <?php echo esc_attr( apply_filters( 'botiga_content_class', '' ) ); ?>">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content', 'page' );
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
-	</main><!-- #main -->
 	
 	<div id="content" class="content"></div>
+
+
+<ul class="breadcrumb">
+      <li><a href="https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/">Hjem</a></li>
+	  <li><a href="javascript:history.back()">Produktoversigt</a></li>
+      <li>Produktdetaljer</li>
+    </ul>
 
 
 
@@ -41,10 +32,10 @@ get_header();
 
 
 <article id="single">
-	  <h4></h4>
+	  <h1 id="single_navn"></h1>
   <img id="produkt_img" src="" alt="" />
 
-    <p class="pris"></p>
+    <h4 class="pris_single"></h4>
 	<div class="ui">
 		
 		<div id="container">
@@ -60,35 +51,60 @@ get_header();
     
 </article>
 
-<h2 id="produkt_oplysninger">Produkt oplysninger</h2>
+<div id="oplysninger_section">
+      <h4>Se produktoplysninger</h4>
+      <div class="produkt_detaljer">
+        <div class="line1"></div>
+        <div class="line2"></div>
+      </div>
+    </div>
 
-<article class="lang_beskrivelse">
-	
-	 <p class="beskrivelse_dropdown"></p>
 
-</article>
+    <p class="beskrivelse_dropdown"></p>
+
+
 
 <h2 id="h2_lignende">Andre kunder har købt</h2>
 
 <section id="andre_produkter"></section>
 
       <template>
-        <article>
-          <img src="" alt="" />
-          <h2></h2>
-          <p class="pris"></p>
-        </article>
+      <article class="lignende_produkter">
+     
+     <img class="produkt_img" src="" alt="" />
+    <h4></h4>
+     <p class="pris"></p>
+    </article>
       </template>
     
 <script>
-   let produkt;
-      const url = "https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/wp-json/wp/v2/produkt/"+<?php echo get_the_ID() ?> ;
 
+      let produkt;
+      let produkter;
+
+      const id = <?php echo get_the_ID() ?>;
+
+      const url = "https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/wp-json/wp/v2/produkt/"+id;
+
+      const produkterUrl = "https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/wp-json/wp/v2/produkt?per_page=4";
+
+      const produktTemplate = document.querySelector("template");
+
+      
+	  
+	    const ekstra_info = document.querySelector("#oplysninger_section");
+
+      const beskrivelse = document.querySelector(".beskrivelse_dropdown");
+
+      const streg = document.querySelector(".line2");
+
+  
 
      window.addEventListener("DOMContentLoaded", getJson);
 
-       async function getJson() {
-		let add = document.querySelector("#up");
+
+
+     let add = document.querySelector("#up");
         let remove = document.querySelector("#ned");
         let nr = document.querySelector("#number");
         let integer = 0;
@@ -104,6 +120,26 @@ get_header();
             nr.innerHTML = integer;
           }
         });
+
+     beskrivelse.style.display = "none";
+
+    ekstra_info.addEventListener("click", foldOut);
+		   
+
+
+
+
+    async function jason() {
+    let response = await fetch(produkterUrl);
+  	produkter = await response.json();
+    console.log(produkter);
+
+  	visAndreProdukter();
+
+     }
+
+
+      async function getJson() {
 		   
 		   
          //Promise - data lover program at komme med date, imen det køre videre
@@ -111,13 +147,56 @@ get_header();
          produkt = await result.json();
         console.log(produkt);
          visProdukt();
+		   
+		   
        }
 
+	
+	
+	function foldOut() {
 
-       function visProdukt() {
+    
+        if (beskrivelse.style.display == "none") {
+          beskrivelse.style.display = "block";
+          streg.style.display = "none";
+        } else {
+          beskrivelse.style.display = "none";
+          streg.style.display = "block";
+        }
+      }
 
-   	document.querySelector("h4").innerHTML = produkt.navn;
-    document.querySelector(".pris").innerHTML = produkt.pris + " kr.";
+
+
+
+    
+function visAndreProdukter() {
+    const liste = document.querySelector("#andre_produkter");
+  liste.textContent = "";
+  produkter.forEach((produkt) => {
+    if (produkt.id != id) {
+     
+      let klon = produktTemplate.cloneNode(true).content;
+      klon.querySelector("h4").innerHTML = produkt.title.rendered;
+      klon.querySelector(".pris").innerHTML = produkt.pris + " kr.";
+	  klon.querySelector("img").src = produkt.billede.guid;
+	  klon.querySelector(".lignende_produkter").addEventListener("click", () => {
+        location.href = produkt.link;
+
+      });
+
+      liste.appendChild(klon); 
+      
+    }
+  });
+}
+
+
+
+
+function visProdukt() {
+
+   	document.querySelector("#single_navn").innerHTML = produkt.navn;
+    document.querySelector(".pris_single").innerHTML = produkt.pris + " kr.";
     document.querySelector(".beskrivelse").innerHTML = produkt.beskrivelse;
 	document.querySelector("#produkt_img").src = produkt.billede.guid;
 		   
@@ -126,6 +205,10 @@ get_header();
        }
 
   getJson();
+
+  jason();
+
+
 </script>
 
 

@@ -15,6 +15,12 @@
 get_header();
 ?>
 
+<ul class="breadcrumb">
+      <li><a href="https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/">Hjem</a></li>
+      <li>Produktoversigt</li>
+      
+    </ul>
+
 	<main id="primary" class="site-main <?php echo esc_attr( apply_filters( 'botiga_content_class', '' ) ); ?>">
 
 		<?php
@@ -32,6 +38,16 @@ get_header();
 		?>
 
 	</main><!-- #main -->
+
+<div class="dropdown">
+  <button class="dropbtn">Sortering</button>
+  <div class="dropdown-content">
+ <li id="lav_hoej">Sortér efter pris: lav til høj</li>
+ <li id="hoej_lav">Sortér efter pris: høj til lav</li>
+ <li id="rating">Sortér efter popularitet</li>
+ 
+  </div>
+</div>
 
 <template>
 	<article class="produkter">
@@ -67,11 +83,73 @@ let produkter;
 let kategori;
 let filterKurs;
 let filter = "alle";
+	
+// Variabler til dropdown:
+
+const dropdown_menu = document.querySelector(".dropdown");
+const dropdown_indhold = document.querySelector(".dropdown-content");
+
+const lowHigh = document.querySelector("#lav_hoej");
+const highLow = document.querySelector("#hoej_lav");
+const rates = document.querySelector("#rating");
 
 
 function start() {
      getJson(url);
+
+// Dropdown-sortering
+
+    dropdown_menu.addEventListener("click", ()=> {
+      dropdown_indhold.classList.toggle("block");
+    })
+    
+
+
+
+    highLow.addEventListener("click", ()=> {
+
+      produkter.sort((a, b) => {
+          return b.pris - a.pris;
+        }); 
+        visProdukter();
+
+
+      console.log("highLow");
+    })
+
+
+  lowHigh.addEventListener("click", ()=> {
+
+    produkter.sort((a, b) => {
+          return a.pris - b.pris;
+        }); 
+        visProdukter();
+
+
+      console.log("lowHigh");
+    })
+
+
+    rates.addEventListener("click", ()=> {
+
+      produkter.sort((a, b) => {
+          return a.id - b.id;
+        }); 
+        visProdukter();
+
+
+
+  
+      console.log("rating");
+    })
+
+    
+
+
+
+
 }
+
 
 async function getJson() {
   //Promise - data lover program at komme med date, imen det køre videre

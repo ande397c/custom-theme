@@ -1,136 +1,320 @@
+body {
+  background-color: black;
+}
+
 #colophon .site-info {
   display: none;
 }
 
 .widget-area {
-	display: none;
+  display: none;
 }
 
+/*..... breadcrumb ....... */
+.breadcrumb {
+  margin-left: 2rem;
+  padding: 10px 16px;
+  text-align: left;
+}
+
+.breadcrumb li {
+  list-style: none;
+  text-decoration: none;
+  display: inline;
+  font-size: 1rem;
+  color: #f74a5a;
+}
+
+ul.breadcrumb li a {
+  text-decoration: underline;
+  color: #f74a5a;
+}
+
+ul.breadcrumb li + li:before {
+  padding: 8px;
+  color: #f74a5a;
+  content: ">";
+}
+
+/*..... Dropdown ....... */
+
+.dropbtn {
+  text-align: center;
+  background-color: #f74a5a;
+  background-image: none;
+  font-family: Open Sans;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: 250ms ease;
+  align-self: center;
+  margin: 0;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 250px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  padding: 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content li {
+  list-style-type: none;
+  padding: 10px;
+}
+
+.dropdown-content li:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: white;
+  color: black;
+}
+
+.block {
+  display: block;
+}
+
+/*..... Singleview ....... */
+
 .pris {
-	color: white;
+  color: white;
 }
 
 h4 {
-	color: white;
-	font-size: 1rem;
+  color: white;
+  font-size: 1rem;
 }
 
 #container {
-        display: flex;
-      }
+  display: flex;
+}
 
-      #number {
-         border: 1px solid black;
-   		 padding-left: 20px;
-   		 padding-right: 20px;
-  		 height: 36px;
-   		 align-items: center;
-  		 display: flex;
-    	justify-content: center;
-    	align-items: center;
-      }
+#number {
+  border: 1px solid white;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 36px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-      #up {
-        background-color: white;
-        border: 1px solid black;
-        cursor: pointer;
-		margin-right: 3rem;
-		  
-		text-align: center;
-    	background-color: #f74a5a;
-   	 	background-image: none;
-    	font-family: Open Sans;
-    	font-weight: 600;
-    	text-transform: uppercase;
-    	font-size: 12px;
-    	line-height: 1;
-    	letter-spacing: 1px;
-    	color: black;
-    	border: none;
-    
-    	padding-top: 12px;
-    	padding-right: 24px;
-    	padding-bottom: 12px;
-    	padding-left: 24px;
-    	cursor: pointer;
-    	transition: 250ms ease;
-    	align-self: center;
-		
-      }
-      #ned {
-        background-color: white;
-        border: 1px solid black;
-        cursor: pointer;
-		  
-		text-align: center;
-    	background-color: #f74a5a;
-   	 	background-image: none;
-    	font-family: Open Sans;
-    	font-weight: 600;
-    	text-transform: uppercase;
-    	font-size: 12px;
-    	line-height: 1;
-    	letter-spacing: 1px;
-    	color: black;
-    	border: none;
-    	
-    	padding-top: 12px;
-    	padding-right: 24px;
-    	padding-bottom: 12px;
-    	padding-left: 24px;
-    	cursor: pointer;
-    	transition: 250ms ease;
-    	align-self: center;
-		
-      }
+  background-color: white;
+}
+
+#up {
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  margin-right: 3rem;
+
+  text-align: center;
+  background-color: #f74a5a;
+  background-image: none;
+  font-family: Open Sans;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: black;
+  border: none;
+
+  padding-top: 12px;
+  padding-right: 24px;
+  padding-bottom: 12px;
+  padding-left: 24px;
+  cursor: pointer;
+  transition: 250ms ease;
+  align-self: center;
+}
+#ned {
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+
+  text-align: center;
+  background-color: #f74a5a;
+  background-image: none;
+  font-family: Open Sans;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: black;
+  border: none;
+
+  padding-top: 12px;
+  padding-right: 24px;
+  padding-bottom: 12px;
+  padding-left: 24px;
+  cursor: pointer;
+  transition: 250ms ease;
+  align-self: center;
+}
 
 .ui {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
 }
 
 #h2_lignende {
-	text-align: center;
+  text-align: center;
+  color: #ffcc2a;
+  font-size: 1.3rem;
+}
+
+#oplysninger {
+  text-align: center;
+  color: #ffcc2a;
+  font-size: 1.3rem;
 }
 
 #produkt_oplysninger {
-		text-align: center;
+  text-align: center;
 }
+
+.beskrivelse {
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.pris_single {
+  color: #ffcc2a;
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 3rem;
+}
+
+.beskrivelse_dropdown {
+  color: white;
+}
+
+#single_navn {
+  color: #ffcc2a;
+  text-align: center;
+}
+
+.back-to-top.position-right {
+  right: 30px;
+  background-color: #f74a5a;
+}
+
+.back-to-top:hover {
+  background-color: #333;
+}
+
+.produkt_detaljer div {
+  width: 23px;
+  height: 5px;
+  margin: 5px;
+  background-color: #ffcc2a;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.line2 {
+  transform: rotate(90deg) translate(0px, 33px);
+}
+
+h4 {
+  color: #ffcc2a;
+  font-size: 1.3rem;
+}
+
+#oplysninger_section {
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.produkt_detaljer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+/*..... Loopview ....... */
 
 .produkt_oversigt {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1rem;
-  /* padding: 2rem;
-margin: 2rem; */
+  gap: 5rem;
+  padding: 10px;
+  margin-top: 7rem;
+}
+
+.produkter {
+  cursor: pointer;
+  transition: ease-in 0.3s;
+  padding: 10px;
+}
+.produkter h4 {
+  color: white;
+  font-size: 1rem;
+}
+
+/* .produkter:hover {
+  border: 1px solid #ffcc2a;
+} */
+
+.produkter:hover {
+  background-color: #333;
+  transform: translateY(-10px);
 }
 
 button {
-	text-align: center;
-    background-color: #f74a5a;
-    background-image: none;
-    font-family: Open Sans;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 12px;
-    line-height: 1;
-    letter-spacing: 1px;
-    color: black;
-    border: none;
-   
-    padding-top: 12px;
-    padding-right: 24px;
-    padding-bottom: 12px;
-    padding-left: 24px;
-    cursor: pointer;
-    transition: 250ms ease;
-    align-self: center;
-    margin-bottom: 2rem;
+  text-align: center;
+  background-color: #f74a5a;
+  background-image: none;
+  font-family: Open Sans;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: black;
+  border: none;
+
+  padding-top: 12px;
+  padding-right: 24px;
+  padding-bottom: 12px;
+  padding-left: 24px;
+  cursor: pointer;
+  transition: 250ms ease;
+  align-self: center;
+  margin-bottom: 2rem;
 }
+
+/*..... Footer ....... */
 
 #footer {
   padding-left: 3rem;
   line-height: 1rem;
+  background-color: black;
 }
 
 #footer h3 {
@@ -219,6 +403,50 @@ input[type="submit"] {
     text-align: left;
   }
 }
+
+@media (min-width: 1250px) {
+  /*..... Singleview desktop....... */
+
+  #single {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #produkt_img {
+    grid-column: 1;
+    grid-row: 1/4;
+    padding-top: 5rem;
+  }
+
+  #single_navn {
+    grid-column: 2;
+    font-size: 2rem;
+    text-align: left;
+    margin-bottom: -3rem;
+  }
+
+  .pris_single {
+    grid-column: 2/3;
+    text-align: left;
+    margin-bottom: -6rem;
+  }
+
+  .beskrivelse {
+    margin-bottom: 6rem;
+  }
+
+  .ui {
+    grid-column: 2/3;
+    grid-row: 4;
+    justify-content: left;
+    margin-top: -7rem;
+  }
+
+  #oplysninger_section {
+    margin-top: 4rem;
+  }
+}
+
 @media (min-width: 1500px) {
   #footer {
     max-width: 1200px;
