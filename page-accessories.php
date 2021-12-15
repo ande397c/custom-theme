@@ -17,7 +17,7 @@ get_header();
 
 <ul class="breadcrumb">
       <li><a href="https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/">Hjem</a></li>
-      <li>Produktoversigt</li>
+      <li>Accessories</li>
       
     </ul>
 

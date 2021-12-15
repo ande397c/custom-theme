@@ -40,7 +40,7 @@
 	<div class="information">
 
 	<h3>Information</h3>
-	<a href="https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/handelsbetingelser-for-sneakidong-aps/">
+	<a href="https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/handelsbetingelser/">
 		<p>Handelsbetingelser</p>
  </a>
 		<a href="https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/om-os/">

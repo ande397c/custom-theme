@@ -17,7 +17,7 @@ get_header();
 
 <ul class="breadcrumb">
       <li><a href="https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/">Hjem</a></li>
-      <li>Produktoversigt</li>
+      <li>Sneakerpleje</li>
       
     </ul>
 
@@ -42,6 +42,9 @@ get_header();
 
 	</main><!-- #main -->
 
+  <!-- Dropdown menu, hvert menupunkt har tildelt et 
+      id, så vi kan sortere i indholdet efter der bliver klikket -->
+
 	<div class="dropdown">
   <button class="dropbtn">Sortering</button>
   <div class="dropdown-content">
@@ -51,7 +54,8 @@ get_header();
  
   </div>
 </div>
-
+  <!-- Template tag der definerer strukturen for den information
+        som vi ønsker at vise i DOM'en -->
 <template>
 	<article class="produkter">
      
@@ -65,27 +69,32 @@ get_header();
 
 
 
-     
+      <!-- Tom section tag som bruges som container og 
+            placere indholdet fra forEach loopet -->
 <section class="produkt_oversigt"></section>
 	
 
 
 
 <script>
+
+  // Der "lyttes" efter om alt DOM-indhold er loaded. Når indholdet er loaded kaldes start funktionen. 
 window.addEventListener("DOMContentLoaded", start);
 
-
+// Der defineres en variabel for templaten 
 const produktTemplate = document.querySelector("template");
 
+// Der defineres yderligere to urler for henholdsvis alle produkter og alle kategorier 
 const url = "https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/wp-json/wp/v2/produkt?per_page=100";
 
 const catUrl = "https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/wp-json/wp/v2/categories?per_page=100";
 
 
+// Der defineres en varibabel for produkter og for kategori, ligesom der skal blev oprettet urler
 let produkter;
 let kategori;
-let filterProdukt;
-let filter = "alle";
+
+
 	
 	// Variabler til dropdown:
 
@@ -98,7 +107,11 @@ const rates = document.querySelector("#rating");
 
 
 function start() {
+  // Her kaldes funktionen getJson, den kaldes med parameteret url som blev defineret som variabel
      getJson(url);
+
+
+
 	    // Dropdown-sortering
 
     dropdown_menu.addEventListener("click", ()=> {
@@ -107,6 +120,8 @@ function start() {
     
 
 
+// Når der klikkes på et punkt i dropdown menuen bliver arrayet produkter sorteret i pris
+// fra høj til lav før det vises i DOM'en
 
     highLow.addEventListener("click", ()=> {
 
@@ -119,7 +134,8 @@ function start() {
       console.log("highLow");
     })
 
-
+// Når der klikkes på et punkt i dropdown menuen bliver arrayet produkter sorteret i pris
+// fra lav til høj før det vises i DOM'en
   lowHigh.addEventListener("click", ()=> {
 
     produkter.sort((a, b) => {
@@ -131,6 +147,8 @@ function start() {
       console.log("lowHigh");
     })
 
+// Når der klikkes på et punkt i dropdown menuen bliver arrayet produkter sorteret efter id
+// før det skrives ud i DOM'en. Sortingen i id skal imitere en sortering af de mest populære produkter
 
     rates.addEventListener("click", ()=> {
 
@@ -152,9 +170,10 @@ function start() {
 
 }
 
-
+ // Funktion der henter data via json
+ 
 async function getJson() {
-  //Promise - data lover program at komme med date, imen det køre videre
+  //Promise - data lover program at komme med date, imens det kører videre
   	let response = await fetch(url);
     let catResponse = await fetch(catUrl);
   	produkter = await response.json();
@@ -162,17 +181,21 @@ async function getJson() {
   console.log(kategori);
 
   	visProdukter();
-
-    
-    
 };
 
+// I denne funktion skrives indholdet ud i DOM'en
 function visProdukter() {
+  // Der defineres en variabel for en tom sektion hvor indholdet skal skrives ud i
     const container = document.querySelector(".produkt_oversigt");
   container.textContent = ""; //Ryd container inden loop
+  // Der laves et forEach loop for hvert produkt, således 
+  // Hvert produkt får klonet informationerne og får så det appended 
+  // det til containeren.
   produkter.forEach((produkt) => {
 
 
+    // Der laves en if sætning der sikrer at der kun hentes
+    // produkter ind hvis de har tilknytning til en bestemt kategori. 
         if (produkt.categories.includes(4)) {
 
         //Er filter det samme som objekt? || betyder eller

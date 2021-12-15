@@ -88,6 +88,9 @@ get_header();
 
       const produkterUrl = "https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/wp-json/wp/v2/produkt?per_page=3";
 
+
+      const relaUrl = "https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/wp-json/wp/v2/produkt?per_page=100";
+
       const produktTemplate = document.querySelector("template");
 
       
@@ -139,7 +142,7 @@ get_header();
      }
 
 
-      async function getJson() {
+async function getJson() {
 		   
 		   
          //Promise - data lover program at komme med date, imen det køre videre
@@ -153,7 +156,7 @@ get_header();
 
 	
 	
-	function foldOut() {
+function foldOut() {
 
     
         if (beskrivelse.style.display == "none") {
@@ -173,6 +176,7 @@ function visAndreProdukter() {
     const liste = document.querySelector("#andre_produkter");
   liste.textContent = "";
   produkter.forEach((produkt) => {
+
     if (produkt.id != id) {
      
       let klon = produktTemplate.cloneNode(true).content;

@@ -1,3 +1,10 @@
+#hero_knap span {
+  text-decoration: none;
+}
+#gul_boks {
+  margin-bottom: -40px;
+}
+
 body {
   background-color: black;
 }
@@ -10,11 +17,32 @@ body {
   display: none;
 }
 
+.content-wrapper {
+  margin-top: -2.5rem;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+#produkt_img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.botiga-offcanvas-menu .main-navigation .sub-menu.toggled {
+  padding-left: 2rem;
+}
+
 /*..... breadcrumb ....... */
 .breadcrumb {
   margin-left: 2rem;
   padding: 10px 16px;
   text-align: left;
+  margin-top: 3rem;
 }
 
 .breadcrumb li {
@@ -34,6 +62,87 @@ ul.breadcrumb li + li:before {
   padding: 8px;
   color: #f74a5a;
   content: ">";
+}
+/*..... Splash ....... */
+.splash_container {
+  background-image: url(img/sneakers_splash.jpg);
+  height: 90vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.splash_content {
+  display: grid;
+  padding-left: 4rem;
+  padding-top: 4rem;
+}
+
+.splash_content,
+#h1_splash,
+.pris_splash h2 {
+  grid-area: 1/1;
+}
+
+.splash_content h2 {
+  grid-area: 1/1;
+  line-height: 2rem;
+  color: orange;
+  text-align: left;
+}
+
+#h1_splash {
+  place-self: center left;
+  letter-spacing: 4px;
+  font-weight: 700;
+  color: #ffcc2a;
+}
+
+#h1_splash {
+  color: white;
+}
+
+.pris_splash {
+  display: flex;
+  gap: 2rem;
+  justify-content: left;
+}
+
+#button_splash {
+  text-align: center;
+  background-color: #f74a5a;
+  background-image: none;
+  font-family: Open Sans;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: black;
+  border: none;
+  padding-top: 12px;
+  padding-right: 24px;
+  padding-bottom: 12px;
+  padding-left: 24px;
+  cursor: pointer;
+  transition: 250ms ease;
+  align-self: center;
+  max-width: 130px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.knap_midte {
+  text-align: left;
+}
+
+#tidligere {
+  color: #333;
+  text-decoration: line-through;
+  font-size: 1.3rem;
+}
+#nu {
+  color: black;
+  font-size: 1.3rem;
 }
 
 /*..... Dropdown ....... */
@@ -86,8 +195,8 @@ ul.breadcrumb li + li:before {
 }
 
 .dropdown:hover .dropbtn {
-  background-color: white;
-  color: black;
+  background-color: #333;
+  color: white;
 }
 
 .block {
@@ -123,6 +232,7 @@ h4 {
 }
 
 #up {
+  border-radius: 0px 5px 5px 0px;
   background-color: white;
   border: 1px solid black;
   cursor: pointer;
@@ -149,6 +259,7 @@ h4 {
   align-self: center;
 }
 #ned {
+  border-radius: 5px 0px 0px 5px;
   background-color: white;
   border: 1px solid black;
   cursor: pointer;
@@ -184,6 +295,7 @@ h4 {
   text-align: center;
   color: #ffcc2a;
   font-size: 1.3rem;
+  margin-top: 7rem;
 }
 
 #oplysninger {
@@ -215,15 +327,18 @@ h4 {
 #single_navn {
   color: #ffcc2a;
   text-align: center;
+  font-size: 1.5rem;
 }
 
 .back-to-top.position-right {
   right: 30px;
   background-color: #f74a5a;
+  transition: 0.3s ease-in;
 }
 
 .back-to-top:hover {
   background-color: #333;
+  scale: 1.15;
 }
 
 .produkt_detaljer div {
@@ -258,6 +373,13 @@ h4 {
 }
 
 /*..... Loopview ....... */
+
+.produkt_img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 
 .produkt_oversigt {
   display: grid;
@@ -315,6 +437,7 @@ button {
   letter-spacing: 1px;
   color: black;
   border: none;
+  border-radius: 5px;
 
   padding-top: 12px;
   padding-right: 24px;
@@ -325,7 +448,9 @@ button {
   align-self: center;
   margin-bottom: 2rem;
 }
-
+button:hover {
+  background-color: #333;
+}
 /*..... Footer ....... */
 
 #footer {
@@ -403,7 +528,6 @@ input[type="submit"]:hover {
   .nyhedsbrev {
     display: flex;
     flex-direction: column;
-    padding-left: 18%;
     margin-top: 0;
   }
 
@@ -428,6 +552,31 @@ input[type="submit"]:hover {
   #footer h3 {
     text-align: left;
   }
+
+  .splash_content {
+    display: grid;
+    padding-left: 4rem;
+    padding-top: 2rem;
+    margin-left: auto;
+    width: 44%;
+  }
+
+  .pris_splash {
+    font-size: 1.3rem;
+  }
+
+  .splash_content h1 {
+    font-size: 2.5rem;
+  }
+
+  .produkt_img {
+    width: 100%;
+    height: auto;
+  }
+
+  .contaioner_form {
+    margin-top: 1.3rem;
+  }
 }
 
 @media (min-width: 1250px) {
@@ -449,6 +598,11 @@ input[type="submit"]:hover {
     font-size: 2rem;
     text-align: left;
     margin-bottom: -3rem;
+  }
+
+  #produkt_img {
+    width: 100%;
+    height: auto;
   }
 
   .pris_single {
@@ -478,4 +632,14 @@ input[type="submit"]:hover {
     max-width: 1200px;
     margin: auto;
   }
+}
+
+/*..... Burgermenu ....... */
+
+#primary-menu a {
+  color: #ffcc2a;
+}
+
+.ws-svg-icon svg:not(.stroke-based) {
+  fill: #ffcc2a;
 }

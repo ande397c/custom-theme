@@ -16,19 +16,16 @@ get_header();
 
 
 ?>
+<ul class="breadcrumb">
+      <li><a href="https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/">Hjem</a></li>
+      <li>Blog</li>
+      
+    </ul>
 
 	<main id="primary" class="site-main <?php echo esc_attr( apply_filters( 'botiga_content_class', '' ) ); ?>">
 
 
 	
-<template>
-	<article class="blogs">
-     
-          <img src="" alt="" />
-		 <h4 id="blog_navn"></h4>
-          <p class="loop_beskrivelse"></p>
-    </article>
-</template>
 
 		<?php
 		while ( have_posts() ) :
@@ -64,7 +61,7 @@ const catUrl = "https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/wp-jso
 
 let blogs;
 let kategori;
-let filterProdukt;
+
 	
 
 
@@ -107,9 +104,9 @@ function visBlogs() {
       //Placer i HTML
 
       klon.querySelector("#blog_navn").innerHTML = blog.title.rendered;
-      klon.querySelector(".loop_beskrivelse").innerHTML = blog.blog_beskrivelse_kort;
-	//klon.querySelector("img").src = blog.coverbillede.guid;
-	  klon.querySelector(".blogs").addEventListener("click", () => {
+      klon.querySelector(".blog_beskrivelse_kort").innerHTML = blog.blog_beskrivelse_kort;
+	    //klon.querySelector(".blog_img").src = blog_opslag.coverbillede.guid;
+	    klon.querySelector(".blogs_section").addEventListener("click", () => {
         location.href = blog.link;
 
       });
