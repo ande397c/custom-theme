@@ -43,8 +43,7 @@ get_header();
 	</main><!-- #main -->
 
   <!-- Dropdown menu, hvert menupunkt har tildelt et 
-      id, så vi kan sortere i indholdet efter der bliver klikket -->
-
+      id, så vi kan sortere i indholdet når der bliver klikket -->
 	<div class="dropdown">
   <button class="dropbtn">Sortering</button>
   <div class="dropdown-content">
@@ -54,6 +53,7 @@ get_header();
  
   </div>
 </div>
+
   <!-- Template tag der definerer strukturen for den information
         som vi ønsker at vise i DOM'en -->
 <template>
@@ -110,8 +110,6 @@ function start() {
   // Her kaldes funktionen getJson, den kaldes med parameteret url som blev defineret som variabel
      getJson(url);
 
-
-
 	    // Dropdown-sortering
 
     dropdown_menu.addEventListener("click", ()=> {
@@ -129,9 +127,7 @@ function start() {
           return b.pris - a.pris;
         }); 
         visProdukter();
-
-
-      console.log("highLow");
+      
     })
 
 // Når der klikkes på et punkt i dropdown menuen bliver arrayet produkter sorteret i pris
@@ -142,9 +138,7 @@ function start() {
           return a.pris - b.pris;
         }); 
         visProdukter();
-
-
-      console.log("lowHigh");
+      
     })
 
 // Når der klikkes på et punkt i dropdown menuen bliver arrayet produkter sorteret efter id
@@ -156,18 +150,8 @@ function start() {
           return a.id - b.id;
         }); 
         visProdukter();
-
-
-
-  
-      console.log("rating");
+     
     })
-
-    
-
-
-
-
 }
 
  // Funktion der henter data via json
@@ -184,6 +168,7 @@ async function getJson() {
 };
 
 // I denne funktion skrives indholdet ud i DOM'en
+
 function visProdukter() {
   // Der defineres en variabel for en tom sektion hvor indholdet skal skrives ud i
     const container = document.querySelector(".produkt_oversigt");

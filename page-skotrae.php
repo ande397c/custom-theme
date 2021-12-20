@@ -140,9 +140,6 @@ function start() {
           return a.id - b.id;
         }); 
         visProdukter();
-
-
-
   
       console.log("rating");
     })

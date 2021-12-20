@@ -46,6 +46,27 @@
 		<a href="https://anderstrapman.dk/kea/2.semester/eksamen/sneaidong/om-os/">
 		<p>Kontakt os</p>
  </a>
+
+
+ <div  class="some_logo">
+
+	<a href="https://www.facebook.com/SneakiDongDK/">	
+<img src="<?php echo get_stylesheet_directory_uri(); ?>/ikon/facebook_logo.png" alt="facebook logo"/>	
+	 </a>
+
+	 <a href="https://www.instagram.com/sneakidong/">	
+<img src="<?php echo get_stylesheet_directory_uri(); ?>/ikon/insta_logo.png" alt="Instagram logo"/>	
+	 </a>
+
+<img src="<?php echo get_stylesheet_directory_uri(); ?>/ikon/tiktok_logo.png"/>
+
+
+</div>
+
+
+
+
+
 	</div>
 
 
